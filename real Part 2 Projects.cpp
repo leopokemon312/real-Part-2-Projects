@@ -1,20 +1,57 @@
-// real Part 2 Projects.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
 
-int main()
-{
-    std::cout << "Hello World!\n";
+using namespace std;
+
+/**
+ * This program populates an array with values, then calls a function to dynamically create a new
+ * array and populates it with the contents of the original array in reverse order.
+ * The program deallocates the memory created in the function before it terminates.
+ */
+
+ /**
+  * Reverses an array by dynamically creating a new array and copying the elements in reverse order.
+  * @param arr A constant integer array containing the original values.
+  * @param size The number of elements in the array.
+  * @return A pointer to the newly allocated array containing reversed elements.
+  */
+int* ReverseArray(int const arr[], int size) {
+    int* reversedArr = new int[size];
+    for (int i = 0; i < size; i++) {
+        reversedArr[i] = arr[size - 1 - i];
+    }
+    return reversedArr;
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
+/**
+ * Prints the contents of an integer array.
+ * @param arr A constant integer array to be printed.
+ * @param size The number of elements in the array.
+ */
+void print(int const arr[], int size) {
+    for (int i = 0; i < size; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+int main() {
+    // Define and initialize the original array
+    int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+    int size = sizeof(arr) / sizeof(arr[0]);
+
+    // Print the original array
+    cout << "Original array: ";
+    print(arr, size);
+
+    // Reverse the array
+    int* reversedArr = ReverseArray(arr, size);
+
+    // Print the reversed array
+    cout << "Reversed array: ";
+    print(reversedArr, size);
+
+    // Deallocate dynamically allocated memory
+    delete[] reversedArr;
+
+    return 0;
+}
