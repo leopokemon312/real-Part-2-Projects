@@ -3,18 +3,12 @@
 using namespace std;
 
 /**
- * This program populates an array with values, then calls a function to dynamically create a new
- * array and populates it with the contents of the original array in reverse order.
- * The program deallocates the memory created in the function before it terminates.
+ * Function to reverse an array by dynamically creating a new array and copying elements in reverse order.
+ * @param arr A constant integer array containing the original values.
+ * @param size The number of elements in the array.
+ * @return A pointer to the newly allocated array containing reversed elements.
  */
-
- /**
-  * Reverses an array by dynamically creating a new array and copying the elements in reverse order.
-  * @param arr A constant integer array containing the original values.
-  * @param size The number of elements in the array.
-  * @return A pointer to the newly allocated array containing reversed elements.
-  */
-int* ReverseArray(int const arr[], int size) {
+int* ReverseArray(const int arr[], int size) {
     int* reversedArr = new int[size];
     for (int i = 0; i < size; i++) {
         reversedArr[i] = arr[size - 1 - i];
@@ -23,11 +17,11 @@ int* ReverseArray(int const arr[], int size) {
 }
 
 /**
- * Prints the contents of an integer array.
+ * Function to print the contents of an integer array.
  * @param arr A constant integer array to be printed.
  * @param size The number of elements in the array.
  */
-void print(int const arr[], int size) {
+void print(const int arr[], int size) {
     for (int i = 0; i < size; i++) {
         cout << arr[i] << " ";
     }
