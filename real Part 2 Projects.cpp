@@ -5,12 +5,8 @@
 using namespace std;
 
 /**
- * This program reads student data from a file, dynamically allocates memory for student records,
- * calculates their average test scores, assigns a course grade, and displays the results.
- * The program ensures proper memory deallocation before termination.
+ * Structure to store student information.
  */
-
- // Structure to store student information
 struct Student {
     string name;
     int idNum;
